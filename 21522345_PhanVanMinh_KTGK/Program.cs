@@ -73,7 +73,7 @@ namespace _21522345_PhanVanMinh_KTGK
             lb1.Location = new Point(10, 240);
 
             tb1.Location = new Point(110, 240);
-            tb1.SetRange(-125, 125);
+            tb1.SetRange(-255, 255);
             tb1.Width = 150;
             tb1.TickFrequency = 10;
             tb1.Scroll += new EventHandler(tb1_Scroll);
@@ -86,7 +86,7 @@ namespace _21522345_PhanVanMinh_KTGK
             lb2.Location = new Point(10, 350);
 
             tb2.Location = new Point(110, 350);
-            tb2.SetRange(-125, 125);
+            tb2.SetRange(-255, 255);
             tb2.Width = 150;
             tb2.TickFrequency = 10;
             tb2.Scroll += new EventHandler(tb2_Scroll);
