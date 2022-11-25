@@ -53,52 +53,60 @@ namespace _21522345_PhanVanMinh_KTGK
         static void Main(string[] args)
         {
             //form.Paint += new PaintEventHandler(Form1_Paint);
-            form.Height = 500;
-            form.Width = 500;
+            form.Height = 632;
+            form.Width = 962;
 
-            ptbSua.Width = 200;
-            ptbSua.Height = 200;
-            ptbSua.BackColor = Color.Aqua;
+            ptbSua.Width = 350;
+            ptbSua.Height = 350;
+            ptbSua.BackColor = Color.DarkSlateGray;
             ptbSua.SizeMode = PictureBoxSizeMode.StretchImage;
-            ptbSua.Location = new Point(0, 0);
+            ptbSua.Location = new Point(45, 28);
 
-            ptbGoc.Width = 200;
-            ptbGoc.Height = 200;
-            ptbGoc.BackColor = Color.Aqua;
+            ptbGoc.Width = 350;
+            ptbGoc.Height = 350;
+            ptbGoc.BackColor = Color.DarkSlateGray;
             ptbGoc.SizeMode = PictureBoxSizeMode.StretchImage;
-            ptbGoc.Location = new Point(220, 0);
+            ptbGoc.Location = new Point(518, 28);
 
             lb1.Text = "Brightness";
             lb1.Width = 70;
-            lb1.Location = new Point(10, 240);
+            lb1.Location = new Point(42, 428);
 
-            tb1.Location = new Point(110, 240);
+            tb1.Location = new Point(202, 428);
             tb1.SetRange(-255, 255);
-            tb1.Width = 150;
+            tb1.Width = 456;
+            tb1.Height = 56;
             tb1.TickFrequency = 10;
             tb1.Scroll += new EventHandler(tb1_Scroll);
 
-            lb_tb1.Location = new Point(90, 242);
-            lb_tb2.Location = new Point(90, 352);
+            lb_tb1.Location = new Point(147, 428);
+            lb_tb2.Location = new Point(147, 516);
 
             lb2.Text = "Saturation";
             lb2.Width = 70;
-            lb2.Location = new Point(10, 350);
+            lb2.Location = new Point(42, 516);
 
-            tb2.Location = new Point(110, 350);
+            tb2.Location = new Point(202, 516);
             tb2.SetRange(-255, 255);
-            tb2.Width = 150;
+            tb2.Width = 456;
+            tb2.Height = 56;
             tb2.TickFrequency = 10;
             tb2.Scroll += new EventHandler(tb2_Scroll);
 
 
-            btLoad.Location = new Point(280, 240);
+            btLoad.Location = new Point(696, 428);
+            btLoad.Height = 56;
+            btLoad.Width = 75;
             btLoad.Text = "Load";
 
-            btSave.Location = new Point(280, 280);
+            btSave.Location = new Point(793, 428);
+            btSave.Height = 56;
+            btSave.Width = 75;
             btSave.Text = "Save";
 
-            btReset.Location = new Point(370, 240);
+            btReset.Location = new Point(696, 507);
+            btReset.Height = 56;
+            btReset.Width = 172;
             btReset.Text = "Reset";
 
             // event
@@ -123,6 +131,7 @@ namespace _21522345_PhanVanMinh_KTGK
 
         private static void tb2_Scroll(object sender, EventArgs e)
         {
+            if (myImage == null) return;
             lb_tb2.Text = tb2.Value.ToString();
             ptbSua.Image = Saturation1(myImage, (float)tb2.Value/100);
         }
@@ -172,6 +181,7 @@ namespace _21522345_PhanVanMinh_KTGK
         }
         private static void tb1_Scroll(object sender, EventArgs e)
         {
+            if (myImage == null) return;
             lb_tb1.Text = tb1.Value.ToString();
             ptbSua.Image = AdjustBrightness1(myImage, (float)tb1.Value);
 
@@ -215,6 +225,7 @@ namespace _21522345_PhanVanMinh_KTGK
         }
         private static void btReset_click(object sender, EventArgs e)
         {
+            if (myImage == null) return;
             try
             {
                 ptbSua.Image = new Bitmap(@path);
@@ -225,7 +236,8 @@ namespace _21522345_PhanVanMinh_KTGK
         }
 
         private static void btSave_click(object sender, EventArgs e)
-        { 
+        {
+            if (myImage == null) return;
             try
             {
                 s.SetApartmentState(ApartmentState.STA);
